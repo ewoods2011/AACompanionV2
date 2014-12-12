@@ -14,12 +14,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Database\SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Weapon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArcheAgeMDPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)carpentry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Crafting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)craftingGuide.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)weaponDetails.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)weaponry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)weaponSelect.cs" />
   </ItemGroup>
   <ItemGroup>
