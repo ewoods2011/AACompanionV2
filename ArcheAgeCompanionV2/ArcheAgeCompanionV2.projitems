@@ -26,6 +26,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Database\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Database\archeageDB.db" />
+    <Content Include="$(MSBuildThisFileDirectory)Database\archeageDB.db" />
   </ItemGroup>
 </Project>

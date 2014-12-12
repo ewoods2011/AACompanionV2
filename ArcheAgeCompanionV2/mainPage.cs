@@ -27,11 +27,11 @@ namespace ArcheAgeCompanionV2
 					Content = new StackLayout {
 						VerticalOptions = LayoutOptions.FillAndExpand,
 						HorizontalOptions = LayoutOptions.FillAndExpand,
+						BackgroundColor = Color.White,
 						Children = {
 							new Label {
-								Text = "This can be some news stuff",
+								Text = "This can be some news stuff and patch notes",
 								TextColor = Color.Black,
-								BackgroundColor = Color.Aqua,
 							}
 						}
 					}

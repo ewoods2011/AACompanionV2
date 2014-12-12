@@ -13,6 +13,7 @@ namespace ArcheAgeCompanionV2
 
 		SQLiteConnection database;
 
+
 		string DatabasePath {
 			get { 
 				var sqliteFilename = "archeageDB.db";
@@ -43,8 +44,12 @@ namespace ArcheAgeCompanionV2
 		public AAWeaponDatabase()
 		{
 			database = new SQLiteConnection (DatabasePath);
-			System.Diagnostics.Debug.WriteLine (DatabasePath);
-			// create the tables
+			database.CreateTable<Weapon> ();
+			List<SQLiteConnection.ColumnInfo> s = database.GetTableInfo ("weaponTable");
+			database.BeginTransaction ();
+
+	
+			System.Diagnostics.Debug.WriteLine(database.Table<Weapon> ().Count().ToString());
 		}
 
 		public IEnumerable<Weapon> GetItems ()
@@ -54,10 +59,11 @@ namespace ArcheAgeCompanionV2
 			}
 		}
 
-		public IEnumerable<Weapon> GetSpecificItems (string weaponType, string weaponSubType)
+		public List<Weapon> GetSpecificItems (string weaponType, string weaponSubType)
 		{
 			lock (locker) {
-				return database.Query<Weapon>("SELECT name FROM [weaponTable] WHERE type = '{0}' and subType = '{1}';", weaponType, weaponSubType);
+				String q = "SELECT * FROM [weaponTable] WHERE type = '"+ weaponType+"' and subType = '" + weaponSubType + "'";
+				return database.Query<Weapon>(q);
 			}
 		}
 			

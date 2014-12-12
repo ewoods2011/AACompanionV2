@@ -9,7 +9,8 @@ namespace ArcheAgeCompanionV2
 	{
 		private static StackLayout pageLayout;
 		private static String[] previousSource;
-		private static IEnumerable<Weapon> weaponsList;
+		private static String selectedType;
+		private static List<Weapon> weaponsList = new List<Weapon>();
 
 
 		public weaponSelect ()
@@ -60,7 +61,8 @@ namespace ArcheAgeCompanionV2
 			};
 			backButton.Clicked += delegate(object sender, EventArgs e) {
 				listView.ItemsSource = previousSource;
-				pageLayout.Children.Remove(backButton);
+				if(previousSource.Equals(weaponTypes))
+					pageLayout.Children.Remove(backButton);
 				listView.SelectedItem = "";
 			};
 				
@@ -70,24 +72,26 @@ namespace ArcheAgeCompanionV2
 				// This is where you would put your “go to one of the selected pages” 
 				if (args.SelectedItem.Equals ("1H Weapon")){
 					listView.ItemsSource = oneHandWeapons;
+					selectedType = "1HWeapon";
 					previousSource = weaponTypes;
 					pageLayout.Children.Add(backButton);
 				}
 
 				if (args.SelectedItem.Equals ("2H Weapon")){
 					listView.ItemsSource = twoHandWeapons;
+					selectedType = "1HWeapon";
 					previousSource = weaponTypes;
 					pageLayout.Children.Add(backButton);
 				}
 
 				if (args.SelectedItem.Equals ("Instruments")){
 					listView.ItemsSource = instruments;
+					selectedType = "1HWeapon";
 					previousSource = weaponTypes;
 					pageLayout.Children.Add(backButton);
 				}
 				if (args.SelectedItem.Equals ("Dagger")){
 					weaponsList = App.Database.GetSpecificItems("1HWeapon", "Dagger");
-
 					List<String> nameSource = new List<String>();
 					foreach(var w in weaponsList){
 						System.Diagnostics.Debug.WriteLine("1");
@@ -96,7 +100,7 @@ namespace ArcheAgeCompanionV2
 					listView.ItemsSource = nameSource.ToArray();
 					previousSource = oneHandWeapons;
 					pageLayout.Children.Add(backButton);
-				}
+				}	
 
 			};
 
