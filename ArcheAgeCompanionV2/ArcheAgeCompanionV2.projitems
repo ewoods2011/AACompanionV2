@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{984EB163-96E7-41A6-83B8-56AE042408CB}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ArcheAgeCompanionV2</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\AAWeaponDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Database\SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Weapon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArcheAgeMDPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)carpentry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Crafting.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)craftingGuide.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)weaponDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)weaponry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)weaponSelect.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Database\archeageDB.db" />
+  </ItemGroup>
+</Project>
